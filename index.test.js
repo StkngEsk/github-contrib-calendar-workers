@@ -36,7 +36,7 @@ describe('Worker', () => {
 		fetchMocker.disableMocks();
 	});
 
-	it('should return 200 and reponse object', async () => {
+	it('should return 200 and response object', async () => {
 		await fetch.mockResponse(html);
 		const resp = await worker.fetch('/christianesk/2022');
 		if (resp) {

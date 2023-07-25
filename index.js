@@ -1,16 +1,16 @@
 import { Router } from 'itty-router';
-import {load} from 'cheerio';
+import { load } from 'cheerio';
 
 // Create a new router
 const router = Router();
 
 
-router.get('/:user/:year',  async ({ params }) => {
+router.get('/:user/:year', async ({ params }) => {
 	// Decode text like "Hello%20world" into "Hello world"
 	let user = decodeURIComponent(params.user);
 	let year = decodeURIComponent(params.year);
 
-	let { textContributions, calendar }=  await githubCalendar(user,year)
+	let { textContributions, calendar } = await githubCalendar(user, year)
 
 	const returnData = JSON.stringify({ textContributions, calendar }, null, 2);
 
@@ -31,7 +31,7 @@ const githubCalendar = async (user = "", year = "") => {
 	let textContributions = "";
 	let url = "";
 
-	if (user !== ""  && year !== "") {
+	if (user !== "" && year !== "") {
 		url = `https://github.com/users/${user}/contributions?from=${year}-01-01&to=${year}-12-31`;
 
 		const response = await fetch(url);
@@ -49,12 +49,6 @@ const githubCalendar = async (user = "", year = "") => {
 	}
 
 	return { textContributions, calendar };
-};
-
-const fetchInternal = async (url) => {
-	const response = await fetch(url);
-	const data = await response.text();
-	return data;
 };
 
 /*
