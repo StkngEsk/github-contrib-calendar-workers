@@ -1,5 +1,6 @@
 import { Router } from 'itty-router';
 import { load } from 'cheerio';
+import { getGithubCalendar } from "@christianesk/github-calendar";
 
 // Create a new router
 const router = Router();
@@ -10,7 +11,7 @@ router.get('/:user/:year', async ({ params }) => {
 	let user = decodeURIComponent(params.user);
 	let year = decodeURIComponent(params.year);
 
-	let { textContributions, calendar } = await githubCalendar(user, year)
+	let { textContributions, calendar } = await getGithubCalendar(user, year);
 
 	const returnData = JSON.stringify({ textContributions, calendar }, null, 2);
 

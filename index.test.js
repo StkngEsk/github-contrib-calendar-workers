@@ -17,15 +17,15 @@ describe('Worker', () => {
 		worker = await unstable_dev('index.js', { experimental: { disableExperimentalWarning: true } });
 		html = `
         <div>
-            <h2 class="f4 text-normal mb-2">Titulo</h2>
-            <div class="graph-canvas">test html</div>
+			<h2 class="f4 text-normal mb-2">578 contributions in 2020</h2>
+			<div class="graph-canvas"><div>Github content calendar.....</div></div>
         </div>
     `;
 		url = 'https://github.com/users/christianesk/contributions?from=2023-01-01&to=2023-12-31';
 
 		data = {
-			calendar: "test html",
-			textContributions: "Titulo"
+			textContributions: "578 contributions in 2020",
+			calendar: "<div>Github content calendar.....</div>"
 		};
 
 

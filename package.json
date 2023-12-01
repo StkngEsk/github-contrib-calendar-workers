@@ -9,7 +9,7 @@
 		"test": "vitest"
 	},
 	"dependencies": {
-		"cheerio": "^1.0.0-rc.12",
+		"@christianesk/github-calendar": "2.0.0",
 		"itty-router": "^2.6.1"
 	},
 	"devDependencies": {
